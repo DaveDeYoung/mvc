@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mvc.dao.resource.ResourceBaseInfoMapper" >
+  <resultMap id="BaseResultMap" type="mvc.model.resource.ResourceBaseInfo" >
+    <id column="i_id" property="iId" jdbcType="INTEGER" />
+    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+    <result column="i_register_type" property="iRegisterType" jdbcType="INTEGER" />
+    <result column="i_device_type" property="iDeviceType" jdbcType="INTEGER" />
+    <result column="c_network_addr" property="cNetworkAddr" jdbcType="VARCHAR" />
+    <result column="i_network_port" property="iNetworkPort" jdbcType="INTEGER" />
+    <result column="c_index_code" property="cIndexCode" jdbcType="VARCHAR" />
+    <result column="c_resource_type" property="cResourceType" jdbcType="VARCHAR" />
+    <result column="c_dns_addr" property="cDnsAddr" jdbcType="VARCHAR" />
+    <result column="i_dns_port" property="iDnsPort" jdbcType="INTEGER" />
+    <result column="c_user_name" property="cUserName" jdbcType="VARCHAR" />
+    <result column="c_user_pwd" property="cUserPwd" jdbcType="VARCHAR" />
+    <result column="c_serial_no" property="cSerialNo" jdbcType="VARCHAR" />
+    <result column="i_manufacturer" property="iManufacturer" jdbcType="INTEGER" />
+    <result column="i_org_id" property="iOrgId" jdbcType="BIGINT" />
+    <result column="c_pu_index_code" property="cPuIndexCode" jdbcType="VARCHAR" />
+    <result column="c_treaty_type" property="cTreatyType" jdbcType="VARCHAR" />
+    <result column="c_link_index_code" property="cLinkIndexCode" jdbcType="VARCHAR" />
+    <result column="i_channel_no" property="iChannelNo" jdbcType="INTEGER" />
+    <result column="i_connect_status" property="iConnectStatus" jdbcType="INTEGER" />
+    <result column="i_status" property="iStatus" jdbcType="INTEGER" />
+    <result column="c_create_time" property="cCreateTime" jdbcType="TIMESTAMP" />
+    <result column="c_update_time" property="cUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="c_creator" property="cCreator" jdbcType="VARCHAR" />
+    <result column="customcode" property="customcode" jdbcType="VARCHAR" />
+    <result column="originsystem" property="originsystem" jdbcType="VARCHAR" />
+    <result column="origincode" property="origincode" jdbcType="VARCHAR" />
+    <result column="resourcetypecode" property="resourcetypecode" jdbcType="VARCHAR" />
+    <result column="resourcetypename" property="resourcetypename" jdbcType="VARCHAR" />
+    <result column="c_stream_url" property="cStreamUrl" jdbcType="VARCHAR" />
+    <result column="c_cascade_code" property="cCascadeCode" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="c_record_style" property="cRecordStyle" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    i_id, c_name, i_register_type, i_device_type, c_network_addr, i_network_port, c_index_code, 
+    c_resource_type, c_dns_addr, i_dns_port, c_user_name, c_user_pwd, c_serial_no, i_manufacturer, 
+    i_org_id, c_pu_index_code, c_treaty_type, c_link_index_code, i_channel_no, i_connect_status, 
+    i_status, c_create_time, c_update_time, c_creator, customcode, originsystem, origincode, 
+    resourcetypecode, resourcetypename, c_stream_url, c_cascade_code, remark, c_record_style
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from resource_base_info
+    where i_id = #{iId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from resource_base_info
+    where i_id = #{iId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mvc.model.resource.ResourceBaseInfo" >
+    insert into resource_base_info (i_id, c_name, i_register_type, 
+      i_device_type, c_network_addr, i_network_port, 
+      c_index_code, c_resource_type, c_dns_addr, 
+      i_dns_port, c_user_name, c_user_pwd, 
+      c_serial_no, i_manufacturer, i_org_id, 
+      c_pu_index_code, c_treaty_type, c_link_index_code, 
+      i_channel_no, i_connect_status, i_status, 
+      c_create_time, c_update_time, c_creator, 
+      customcode, originsystem, origincode, 
+      resourcetypecode, resourcetypename, c_stream_url, 
+      c_cascade_code, remark, c_record_style
+      )
+    values (#{iId,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR}, #{iRegisterType,jdbcType=INTEGER}, 
+      #{iDeviceType,jdbcType=INTEGER}, #{cNetworkAddr,jdbcType=VARCHAR}, #{iNetworkPort,jdbcType=INTEGER}, 
+      #{cIndexCode,jdbcType=VARCHAR}, #{cResourceType,jdbcType=VARCHAR}, #{cDnsAddr,jdbcType=VARCHAR}, 
+      #{iDnsPort,jdbcType=INTEGER}, #{cUserName,jdbcType=VARCHAR}, #{cUserPwd,jdbcType=VARCHAR}, 
+      #{cSerialNo,jdbcType=VARCHAR}, #{iManufacturer,jdbcType=INTEGER}, #{iOrgId,jdbcType=BIGINT}, 
+      #{cPuIndexCode,jdbcType=VARCHAR}, #{cTreatyType,jdbcType=VARCHAR}, #{cLinkIndexCode,jdbcType=VARCHAR}, 
+      #{iChannelNo,jdbcType=INTEGER}, #{iConnectStatus,jdbcType=INTEGER}, #{iStatus,jdbcType=INTEGER}, 
+      #{cCreateTime,jdbcType=TIMESTAMP}, #{cUpdateTime,jdbcType=TIMESTAMP}, #{cCreator,jdbcType=VARCHAR}, 
+      #{customcode,jdbcType=VARCHAR}, #{originsystem,jdbcType=VARCHAR}, #{origincode,jdbcType=VARCHAR}, 
+      #{resourcetypecode,jdbcType=VARCHAR}, #{resourcetypename,jdbcType=VARCHAR}, #{cStreamUrl,jdbcType=VARCHAR}, 
+      #{cCascadeCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{cRecordStyle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mvc.model.resource.ResourceBaseInfo" >
+    insert into resource_base_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iId != null" >
+        i_id,
+      </if>
+      <if test="cName != null" >
+        c_name,
+      </if>
+      <if test="iRegisterType != null" >
+        i_register_type,
+      </if>
+      <if test="iDeviceType != null" >
+        i_device_type,
+      </if>
+      <if test="cNetworkAddr != null" >
+        c_network_addr,
+      </if>
+      <if test="iNetworkPort != null" >
+        i_network_port,
+      </if>
+      <if test="cIndexCode != null" >
+        c_index_code,
+      </if>
+      <if test="cResourceType != null" >
+        c_resource_type,
+      </if>
+      <if test="cDnsAddr != null" >
+        c_dns_addr,
+      </if>
+      <if test="iDnsPort != null" >
+        i_dns_port,
+      </if>
+      <if test="cUserName != null" >
+        c_user_name,
+      </if>
+      <if test="cUserPwd != null" >
+        c_user_pwd,
+      </if>
+      <if test="cSerialNo != null" >
+        c_serial_no,
+      </if>
+      <if test="iManufacturer != null" >
+        i_manufacturer,
+      </if>
+      <if test="iOrgId != null" >
+        i_org_id,
+      </if>
+      <if test="cPuIndexCode != null" >
+        c_pu_index_code,
+      </if>
+      <if test="cTreatyType != null" >
+        c_treaty_type,
+      </if>
+      <if test="cLinkIndexCode != null" >
+        c_link_index_code,
+      </if>
+      <if test="iChannelNo != null" >
+        i_channel_no,
+      </if>
+      <if test="iConnectStatus != null" >
+        i_connect_status,
+      </if>
+      <if test="iStatus != null" >
+        i_status,
+      </if>
+      <if test="cCreateTime != null" >
+        c_create_time,
+      </if>
+      <if test="cUpdateTime != null" >
+        c_update_time,
+      </if>
+      <if test="cCreator != null" >
+        c_creator,
+      </if>
+      <if test="customcode != null" >
+        customcode,
+      </if>
+      <if test="originsystem != null" >
+        originsystem,
+      </if>
+      <if test="origincode != null" >
+        origincode,
+      </if>
+      <if test="resourcetypecode != null" >
+        resourcetypecode,
+      </if>
+      <if test="resourcetypename != null" >
+        resourcetypename,
+      </if>
+      <if test="cStreamUrl != null" >
+        c_stream_url,
+      </if>
+      <if test="cCascadeCode != null" >
+        c_cascade_code,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="cRecordStyle != null" >
+        c_record_style,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iId != null" >
+        #{iId,jdbcType=INTEGER},
+      </if>
+      <if test="cName != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="iRegisterType != null" >
+        #{iRegisterType,jdbcType=INTEGER},
+      </if>
+      <if test="iDeviceType != null" >
+        #{iDeviceType,jdbcType=INTEGER},
+      </if>
+      <if test="cNetworkAddr != null" >
+        #{cNetworkAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="iNetworkPort != null" >
+        #{iNetworkPort,jdbcType=INTEGER},
+      </if>
+      <if test="cIndexCode != null" >
+        #{cIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cResourceType != null" >
+        #{cResourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="cDnsAddr != null" >
+        #{cDnsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="iDnsPort != null" >
+        #{iDnsPort,jdbcType=INTEGER},
+      </if>
+      <if test="cUserName != null" >
+        #{cUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="cUserPwd != null" >
+        #{cUserPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="cSerialNo != null" >
+        #{cSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="iManufacturer != null" >
+        #{iManufacturer,jdbcType=INTEGER},
+      </if>
+      <if test="iOrgId != null" >
+        #{iOrgId,jdbcType=BIGINT},
+      </if>
+      <if test="cPuIndexCode != null" >
+        #{cPuIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cTreatyType != null" >
+        #{cTreatyType,jdbcType=VARCHAR},
+      </if>
+      <if test="cLinkIndexCode != null" >
+        #{cLinkIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="iChannelNo != null" >
+        #{iChannelNo,jdbcType=INTEGER},
+      </if>
+      <if test="iConnectStatus != null" >
+        #{iConnectStatus,jdbcType=INTEGER},
+      </if>
+      <if test="iStatus != null" >
+        #{iStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cCreateTime != null" >
+        #{cCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUpdateTime != null" >
+        #{cUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCreator != null" >
+        #{cCreator,jdbcType=VARCHAR},
+      </if>
+      <if test="customcode != null" >
+        #{customcode,jdbcType=VARCHAR},
+      </if>
+      <if test="originsystem != null" >
+        #{originsystem,jdbcType=VARCHAR},
+      </if>
+      <if test="origincode != null" >
+        #{origincode,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetypecode != null" >
+        #{resourcetypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetypename != null" >
+        #{resourcetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="cStreamUrl != null" >
+        #{cStreamUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="cCascadeCode != null" >
+        #{cCascadeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cRecordStyle != null" >
+        #{cRecordStyle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mvc.model.resource.ResourceBaseInfo" >
+    update resource_base_info
+    <set >
+      <if test="cName != null" >
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="iRegisterType != null" >
+        i_register_type = #{iRegisterType,jdbcType=INTEGER},
+      </if>
+      <if test="iDeviceType != null" >
+        i_device_type = #{iDeviceType,jdbcType=INTEGER},
+      </if>
+      <if test="cNetworkAddr != null" >
+        c_network_addr = #{cNetworkAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="iNetworkPort != null" >
+        i_network_port = #{iNetworkPort,jdbcType=INTEGER},
+      </if>
+      <if test="cIndexCode != null" >
+        c_index_code = #{cIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cResourceType != null" >
+        c_resource_type = #{cResourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="cDnsAddr != null" >
+        c_dns_addr = #{cDnsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="iDnsPort != null" >
+        i_dns_port = #{iDnsPort,jdbcType=INTEGER},
+      </if>
+      <if test="cUserName != null" >
+        c_user_name = #{cUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="cUserPwd != null" >
+        c_user_pwd = #{cUserPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="cSerialNo != null" >
+        c_serial_no = #{cSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="iManufacturer != null" >
+        i_manufacturer = #{iManufacturer,jdbcType=INTEGER},
+      </if>
+      <if test="iOrgId != null" >
+        i_org_id = #{iOrgId,jdbcType=BIGINT},
+      </if>
+      <if test="cPuIndexCode != null" >
+        c_pu_index_code = #{cPuIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cTreatyType != null" >
+        c_treaty_type = #{cTreatyType,jdbcType=VARCHAR},
+      </if>
+      <if test="cLinkIndexCode != null" >
+        c_link_index_code = #{cLinkIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="iChannelNo != null" >
+        i_channel_no = #{iChannelNo,jdbcType=INTEGER},
+      </if>
+      <if test="iConnectStatus != null" >
+        i_connect_status = #{iConnectStatus,jdbcType=INTEGER},
+      </if>
+      <if test="iStatus != null" >
+        i_status = #{iStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cCreateTime != null" >
+        c_create_time = #{cCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUpdateTime != null" >
+        c_update_time = #{cUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCreator != null" >
+        c_creator = #{cCreator,jdbcType=VARCHAR},
+      </if>
+      <if test="customcode != null" >
+        customcode = #{customcode,jdbcType=VARCHAR},
+      </if>
+      <if test="originsystem != null" >
+        originsystem = #{originsystem,jdbcType=VARCHAR},
+      </if>
+      <if test="origincode != null" >
+        origincode = #{origincode,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetypecode != null" >
+        resourcetypecode = #{resourcetypecode,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetypename != null" >
+        resourcetypename = #{resourcetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="cStreamUrl != null" >
+        c_stream_url = #{cStreamUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="cCascadeCode != null" >
+        c_cascade_code = #{cCascadeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cRecordStyle != null" >
+        c_record_style = #{cRecordStyle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where i_id = #{iId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mvc.model.resource.ResourceBaseInfo" >
+    update resource_base_info
+    set c_name = #{cName,jdbcType=VARCHAR},
+      i_register_type = #{iRegisterType,jdbcType=INTEGER},
+      i_device_type = #{iDeviceType,jdbcType=INTEGER},
+      c_network_addr = #{cNetworkAddr,jdbcType=VARCHAR},
+      i_network_port = #{iNetworkPort,jdbcType=INTEGER},
+      c_index_code = #{cIndexCode,jdbcType=VARCHAR},
+      c_resource_type = #{cResourceType,jdbcType=VARCHAR},
+      c_dns_addr = #{cDnsAddr,jdbcType=VARCHAR},
+      i_dns_port = #{iDnsPort,jdbcType=INTEGER},
+      c_user_name = #{cUserName,jdbcType=VARCHAR},
+      c_user_pwd = #{cUserPwd,jdbcType=VARCHAR},
+      c_serial_no = #{cSerialNo,jdbcType=VARCHAR},
+      i_manufacturer = #{iManufacturer,jdbcType=INTEGER},
+      i_org_id = #{iOrgId,jdbcType=BIGINT},
+      c_pu_index_code = #{cPuIndexCode,jdbcType=VARCHAR},
+      c_treaty_type = #{cTreatyType,jdbcType=VARCHAR},
+      c_link_index_code = #{cLinkIndexCode,jdbcType=VARCHAR},
+      i_channel_no = #{iChannelNo,jdbcType=INTEGER},
+      i_connect_status = #{iConnectStatus,jdbcType=INTEGER},
+      i_status = #{iStatus,jdbcType=INTEGER},
+      c_create_time = #{cCreateTime,jdbcType=TIMESTAMP},
+      c_update_time = #{cUpdateTime,jdbcType=TIMESTAMP},
+      c_creator = #{cCreator,jdbcType=VARCHAR},
+      customcode = #{customcode,jdbcType=VARCHAR},
+      originsystem = #{originsystem,jdbcType=VARCHAR},
+      origincode = #{origincode,jdbcType=VARCHAR},
+      resourcetypecode = #{resourcetypecode,jdbcType=VARCHAR},
+      resourcetypename = #{resourcetypename,jdbcType=VARCHAR},
+      c_stream_url = #{cStreamUrl,jdbcType=VARCHAR},
+      c_cascade_code = #{cCascadeCode,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      c_record_style = #{cRecordStyle,jdbcType=VARCHAR}
+    where i_id = #{iId,jdbcType=INTEGER}
+  </update>
+</mapper>

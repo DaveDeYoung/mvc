@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd" >
+	
+	<context:component-scan base-package="timer"></context:component-scan>
+	
+	<!-- 每月1号00:15新增删除状态信息-->
+	<bean id="demoJobBean"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject" ref="demoJob" />
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod" value="print" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="demoJobSchedule"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="demoJobBean" />
+		<property name="cronExpression" value="2 * * * * ?" />
+	</bean>
+    
+	<!-- 总管理类 -->
+	<bean id="startQuartz" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="demoJobSchedule" />
+			</list>
+		</property>
+	</bean>
+
+</beans>
